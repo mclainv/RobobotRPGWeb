@@ -2,6 +2,7 @@ import express, { Express } from 'express';
 import cors from 'cors';
 import session from 'express-session';
 import passport from 'passport';
+import store from 'connect-mongo';
 // import passport-discord from 'passport-discord';
 import routes from '../routes';
 require('../strats/discord');

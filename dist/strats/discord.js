@@ -8,21 +8,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-require("./config");
-const createApp_1 = require("./utils/createApp");
-const PORT = process.env.PORT || 3001;
-function main() {
-    return __awaiter(this, void 0, void 0, function* () {
-        try {
-            const app = (0, createApp_1.createApp)();
-            app.listen(PORT, () => {
-                console.log("Running on port ", PORT);
-            });
-        }
-        catch (err) {
-            console.log("there was an error");
-        }
-    });
-}
-main();
+const passport_1 = __importDefault(require("passport"));
+const passport_discord_1 = require("passport-discord");
+passport_1.default.use(new passport_discord_1.Strategy({
+    clientID: process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
+    callbackURL: process.env.CALLBACK_URL,
+    scope: ['identity', 'email', 'guilds'],
+}, (accessToken, refreshToken, profile, done) => __awaiter(void 0, void 0, void 0, function* () { })));
