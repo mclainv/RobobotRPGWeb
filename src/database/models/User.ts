@@ -2,7 +2,8 @@ import mongoose from 'mongoose';
 const UserCompletedQuests = require('./UserCompletedQuests');
 
 // User interface
-interface User {
+export interface User {
+    id: string,
     userId: string,
     guildId: string,
     balance: number,

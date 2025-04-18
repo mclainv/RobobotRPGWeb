@@ -18,7 +18,7 @@ router.get('/status', (req, res) => {
         res.send(req.user);
     } else {
         res.status(401).send({
-            msg: "Unauthorized"
+            msg: 'Unauthorized'
         });
     }
     return;
