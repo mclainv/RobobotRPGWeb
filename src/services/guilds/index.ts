@@ -17,3 +17,20 @@ export async function getUserGuildsService(id: string) {
         headers: { Authorization: `Bearer ${user.accessToken}`},
     });
 }
+
+export async function getMutualGuildsService(id: string) {
+    const { data: botGuilds} = await getBotGuildsService();
+    const { data: userGuilds} = await getUserGuildsService(id);
+    
+    //check if user is an admin
+    
+    // https://discordapi.com/permissions.html#536887296
+    // const adminUserGuilds = userGuilds.filter(
+    //     ({ permissions }) => (parseInt(permissions) & 0x8) === 0x8
+    // );
+    // console.log(adminUserGuilds);
+    
+    //get mutual servers
+    return userGuilds.filter((userG) => 
+        botGuilds.some((botGuild) => botGuild.id === userG.id));
+}
