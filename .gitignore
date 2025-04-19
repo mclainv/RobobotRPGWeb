@@ -3,3 +3,6 @@ node_modules
 RobobotRPGWeb-api/node_modules
 RobobotRPGWeb-api/.env
 RobotRPGWeb-api/package-lock.json
+robobotrpgweb-client/node_modules
+robobotrpgweb-client/.env
+robobotrpgweb-client/package-lock.json
