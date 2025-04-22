@@ -1,4 +1,4 @@
-import express, { Express } from 'express';
+import express, { Express, NextFunction, Request, Response } from 'express';
 import cors from 'cors';
 import session from 'express-session';
 import passport from 'passport';
@@ -34,6 +34,9 @@ export function createApp(): Express {
     //Enable passport
     app.use(passport.initialize());
     app.use(passport.session());
+    
+    // arbitrary delay for rate limit protection
+    // app.use((req: Request, res: Response, next: NextFunction) => {setTimeout(() => next(), 1000)});
     
     app.use('/api', routes);
 

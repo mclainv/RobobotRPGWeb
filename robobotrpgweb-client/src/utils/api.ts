@@ -17,3 +17,8 @@ export const fetchMutualGuilds = async (context: GetServerSidePropsContext) => {
     }
 
 }
+
+export const fetchValidGuild = async (guildId: string, headers: HeadersInit) => {
+    const response = await fetch(`${API_URL}/guilds/${guildId}/permissions`, { headers });
+    return response;
+}

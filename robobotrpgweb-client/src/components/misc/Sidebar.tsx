@@ -30,6 +30,7 @@ export const Sidebar = () => {
             <Image className={styles.avatar} src="/globe.svg" height={80} width={80} alt="guild_avatar"></Image>
             <div className={styles.icons}>
                 {routes.map((route) => 
+                    //this is ridiculous, but it works...
                     <div key={route.name} onClick={() => router.push(route.getPath(router.query?.id!.toString()))}>
                         {route.icon}
                     </div>)}
