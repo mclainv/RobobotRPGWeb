@@ -21,7 +21,7 @@ body {
 }
 
 body {
-  font-family: "Railway", Arial, Helvetica, sans-serif;
+  font-family: 'Raleway', Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -32,8 +32,14 @@ body {
 
 .page {
   height: 100%;
+  // background-color: pink;
   background-color: #1d1d1d;
   padding: 50px;
+}
+.page-aligned-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 * {
