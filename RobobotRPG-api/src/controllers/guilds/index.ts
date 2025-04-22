@@ -1,5 +1,5 @@
 import { Response, Request } from 'express';
-import { getMutualGuildsService } from '../../services/guilds/';
+import { getGuildService, getMutualGuildsService } from '../../services/guilds/';
 import { User } from '../../database/models/User';
 export async function getGuildsController(req: Request, res: Response) {
     const user = req.user as User;
@@ -28,3 +28,15 @@ export async function getGuildPermissionsController(req: Request, res: Response)
         res.status(400).send({ msg: 'Failed to fetch guilds' });
     }
 }
+//Individual guild getter
+export async function getGuildController(req: Request, res: Response) {
+    const { guildId } = req.params;
+    try {
+        const { data: guild } = await getGuildService(guildId);
+        res.send(guild);
+    } catch(err) {
+        console.log(err);
+        res.status(400).send({ msg: 'Failed to fetch guilds' });
+    }
+
+}   
