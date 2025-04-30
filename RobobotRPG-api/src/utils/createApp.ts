@@ -26,7 +26,11 @@ export function createApp(): Express {
         secret: 'aKj7$9pQ#2zLmN*5rT!xV8@yW3sBdE6fG', // used to en/decrypt cookie, to get session ID from server
         resave: false,
         saveUninitialized: false,
-        cookie: { maxAge: 60000 * 60 * 24 * 3 }, // 3 days 
+        cookie: {
+          maxAge: 1000 * 60 * 60 * 24 * 3, // 3 days
+          sameSite: process.env.NODE_ENV === 'development' ? 'lax' : 'none',
+          secure: process.env.NODE_ENV !== 'development',
+        },
         store: store.create({
             mongoUrl: process.env.DSN
         })
