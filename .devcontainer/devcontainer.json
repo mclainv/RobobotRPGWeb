@@ -12,13 +12,17 @@
   "postCreateCommand": "npm install --prefix RobobotRPG-api && npm install --prefix robobotrpgweb-client",
   "postStartCommand": "bash /workspace/run.sh",
   "remoteEnv": {
-  "PORT": "${PORT}",
-  "DSN": "${DSN}",
-  "CLIENT_SECRET": "${CLIENT_SECRET}",
-  "CLIENT_ID": "${CLIENT_ID}",
-  "DISCORD_BOT_TOKEN": "${DISCORD_BOT_TOKEN}",
-  "CALLBACK_URL": "${CALLBACK_URL}"
-},
+    "API_PORT": "${API_PORT}",
+    "SITE_URL": "${SITE_URL}",
+    "API_URL": "${API_URL}",
+    "SITE_PORT": "${SITE_PORT}",
+    "DISCORD_API_URL": "${DISCORD_API_URL}",
+    "DSN": "${DSN}",
+    "CLIENT_SECRET": "${CLIENT_SECRET}",
+    "CLIENT_ID": "${CLIENT_ID}",
+    "DISCORD_BOT_TOKEN": "${DISCORD_BOT_TOKEN}",
+    "CALLBACK_URL": "${CALLBACK_URL}"
+  },
   "forwardPorts": [3000, 3001],
   "portsAttributes": {
     "3000": {
