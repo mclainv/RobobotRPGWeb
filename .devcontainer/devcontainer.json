@@ -5,8 +5,8 @@
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
   // Install dependencies in both subfolders after container is created
   "postCreateCommand": "cd RobobotRPG-api && npm install && cd ../robobotrpgweb-client && npm install",
-  // Automatically start both dev servers on container start
-  "postStartCommand": "bash -lc \"cd RobobotRPG-api && npm run dev & cd ../robobotrpgweb-client && npm run dev &\"",
+  // Automatically start API process with PM2 on container start
+  "postStartCommand": "cd RobobotRPG-api && npx --yes pm2 start app.js && cd ../robobotrpgweb-client && npx --yes pm2 start dev",
   // Expose client (3000) and API (3001)
   "forwardPorts": [3000, 3001],
   "updateContentCommand": "npm install",
