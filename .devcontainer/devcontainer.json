@@ -1,0 +1,19 @@
+{
+  "name": "RoboBotRPG Codespace",
+  "image": "mcr.microsoft.com/vscode/devcontainers/typescript-node:0-18",
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+  // Install dependencies in both subfolders after container is created
+  "postCreateCommand": "cd RobobotRPG-api && npm install && cd ../robobotrpgweb-client && npm install",
+  // Expose client (3000) and API (3001)
+  "forwardPorts": [3000, 3001],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  }
+} 
