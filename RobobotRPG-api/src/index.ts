@@ -1,7 +1,7 @@
 import './config';
 import { createApp } from './utils/createApp';
 import './database/';
-const PORT = parseInt(process.env.API_PORT || '3001', 10);
+const PORT = parseInt(process.env.PORT || '3001', 10);
 
 async function main() {
     try {
