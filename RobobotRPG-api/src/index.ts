@@ -1,13 +1,13 @@
 import './config';
 import { createApp } from './utils/createApp';
 import './database/';
-const PORT = process.env.PORT || 3001;
+const API_PORT = process.env.API_PORT || 3001;
 
 async function main() {
     try {
         const app = createApp();
-        app.listen(PORT, () => {
-            console.log("Running on port ", PORT);
+        app.listen(API_PORT, () => {
+            console.log("Running on port ", API_PORT);
         })
     }
     catch (err) {

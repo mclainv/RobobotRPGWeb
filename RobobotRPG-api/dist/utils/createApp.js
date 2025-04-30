@@ -2,6 +2,8 @@
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+import '../config';
+
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createApp = createApp;
 const express_1 = __importDefault(require("express"));
@@ -18,7 +20,7 @@ function createApp() {
     app.use(express_1.default.urlencoded());
     //enable cores
     app.use((0, cors_1.default)({
-        origin: ['http://localhost:3000'],
+        origin: [`${process.env.SITE_URL}`],
         credentials: true,
     }));
     //Enable sessions

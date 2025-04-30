@@ -2,23 +2,23 @@ import { GetServerSidePropsContext } from "next";
 import axios from 'axios';
 import { validateCookies } from "./helpers";
 import { PartialGuild } from "./types";
+import '../config';
 
-const API_URL = 'http://localhost:3001/api';
+const API_URL = process.env.API_URL;
 
 export const fetchMutualGuilds = async (context: GetServerSidePropsContext) => {
     const headers = validateCookies(context);
     if (!headers) return { redirect: { destination: '/'} };
     try {
-        const { data: guilds } = await axios.get<PartialGuild[]>(`${API_URL}/guilds`, { headers });
+        const { data: guilds } = await axios.get<PartialGuild[]>(`${API_URL}/api/guilds`, { headers });
         return { props: { guilds } } ;
     } catch(err) {
         console.log(err);
         return { redirect: { destination: '/'}};
     }
-
 }
 
 export const fetchValidGuild = async (guildId: string, headers: HeadersInit) => {
-    const response = await fetch(`${API_URL}/guilds/${guildId}/permissions`, { headers });
+    const response = await fetch(`${API_URL}/api/guilds/${guildId}/permissions`, { headers });
     return response;
 }

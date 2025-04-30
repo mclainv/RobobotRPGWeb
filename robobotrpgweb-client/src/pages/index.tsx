@@ -1,9 +1,10 @@
 import type { NextPage } from 'next';
 import styles from '../utils/styles/home.module.scss';
 import { FaDiscord } from "react-icons/fa";
+import '../config';
 const Home: NextPage = () => {
   const handleLogin = () => {
-    window.location.href = 'http://localhost:3001/api/auth/discord';
+    window.location.href = `${process.env.API_URL}/api/auth/discord`;
   }
   return (
     <div className="page page-aligned-center">

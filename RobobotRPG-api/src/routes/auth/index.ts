@@ -1,5 +1,6 @@
 import { Router } from "express";
 import passport from "passport";
+import '../../config';
 
 const router = Router();
 
@@ -9,7 +10,7 @@ router.get('/discord', passport.authenticate('discord'), (req, res) => {
 });
 
 router.get('/discord/redirect', passport.authenticate('discord'), (req, res) => {
-    res.redirect('http://localhost:3000/menu');
+    res.redirect(`${process.env.SITE_URL}/menu`);
     return;
 });
 

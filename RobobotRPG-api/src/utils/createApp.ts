@@ -6,6 +6,7 @@ import store from 'connect-mongo';
 // import passport-discord from 'passport-discord';
 import routes from '../routes';
 require('../strats/discord');
+import '../config';
 
 export function createApp(): Express {
     const app = express();
@@ -16,7 +17,7 @@ export function createApp(): Express {
     //enable cores
     app.use(
         cors({
-            origin: ['http://localhost:3000'],
+            origin: [`${process.env.SITE_URL}`],
             credentials: true,
         })
     );
