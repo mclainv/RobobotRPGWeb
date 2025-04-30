@@ -5,6 +5,6 @@ export const validateCookies = (ctx: GetServerSidePropsContext) => {
     console.log("ctx.req.cookies are ", ctx.req.cookies);
     console.log("sessionID is ", sessionID);
     return sessionID ? ({
-        Cookie: `connect.sid=${sessionID}`
+        Cookie: `connect.sid=${sessionID}; SameSite=None; Secure`
     }) : false;
 }
