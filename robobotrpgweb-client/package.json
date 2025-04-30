@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "updateContentCommand": "npm install",
   "dependencies": {
     "axios": "^1.8.4",
     "next": "15.3.1",
