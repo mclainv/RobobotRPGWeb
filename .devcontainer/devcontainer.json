@@ -9,6 +9,7 @@
   "postStartCommand": "bash -lc \"cd RobobotRPG-api && npm run dev & cd ../robobotrpgweb-client && npm run dev &\"",
   // Expose client (3000) and API (3001)
   "forwardPorts": [3000, 3001],
+  "updateContentCommand": "npm install",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -17,5 +18,9 @@
         "ms-azuretools.vscode-docker"
       ]
     }
-  }
+  },
+  "remoteEnv": {
+  "PORT": "${PORT}",
+  "DSN": "${DSN}"
+}
 } 
