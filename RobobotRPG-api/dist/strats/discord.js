@@ -14,9 +14,39 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const passport_1 = __importDefault(require("passport"));
 const passport_discord_1 = require("passport-discord");
+const models_1 = require("../database/models");
+passport_1.default.serializeUser((user, done) => {
+    return done(null, user.id);
+});
+passport_1.default.deserializeUser((id, done) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const user = yield models_1.User.findById(id);
+        return user ? done(null, user) : done(null, null);
+    }
+    catch (err) {
+        console.log(err);
+        return done(err, null);
+    }
+}));
 passport_1.default.use(new passport_discord_1.Strategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
     callbackURL: process.env.CALLBACK_URL,
-    scope: ['identity', 'email', 'guilds'],
-}, (accessToken, refreshToken, profile, done) => __awaiter(void 0, void 0, void 0, function* () { })));
+    scope: ['identify', 'guilds', 'email'],
+}, (accessToken, refreshToken, profile, done) => __awaiter(void 0, void 0, void 0, function* () {
+    const { id: discordId } = profile;
+    try {
+        const existingUser = yield models_1.User.findOneAndUpdate({ userId: discordId }, { accessToken, refreshToken }, { new: true });
+        if (existingUser) {
+            console.log(existingUser);
+            return done(null, existingUser);
+        }
+        // const newUser = User.create( discordId, guildId, accessToken, refreshToken)
+        // const savedUser = await newUser.save();
+        // return done(null, savedUser);
+    }
+    catch (err) {
+        console.log(err);
+        return done(err, undefined);
+    }
+})));

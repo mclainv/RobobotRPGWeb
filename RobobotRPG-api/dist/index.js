@@ -11,13 +11,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./config");
 const createApp_1 = require("./utils/createApp");
-const PORT = process.env.PORT || 3001;
+require("./database/");
+const API_PORT = process.env.API_PORT || 3001;
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const app = (0, createApp_1.createApp)();
-            app.listen(PORT, () => {
-                console.log("Running on port ", PORT);
+            app.listen(API_PORT, () => {
+                console.log("Running on port ", API_PORT);
             });
         }
         catch (err) {
