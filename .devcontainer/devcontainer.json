@@ -6,6 +6,7 @@
   "hostRequirements": {
       "cpus": 4
   },
+  "updateContentCommand": "cd robobotrpgweb-client && npm install && cd ../RobobotRPG-api && npm install",
   "postAttachCommand": "bash /workspace/run.sh",
   "remoteEnv": {
   "PORT": "${PORT}",
@@ -14,5 +15,6 @@
   "CLIENT_ID": "${CLIENT_ID}",
   "DISCORD_BOT_TOKEN": "${DISCORD_BOT_TOKEN}",
   "CALLBACK_URL": "${CALLBACK_URL}"
-}
+},
+  "forwardPorts": [3000, 3001]
 } 

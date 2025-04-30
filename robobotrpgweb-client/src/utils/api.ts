@@ -3,27 +3,7 @@ import axios from 'axios';
 import { validateCookies } from "./helpers";
 import { PartialGuild } from "./types";
 
-// Dynamically resolve the API URL based on the env (SSR ?, local dev, or Codespaces)
-// I found this fix after searching on many Stackoverflow articles
-// I really don't like it, but I'll try to get something better soon
-const getApiUrl = () => {
-  if (typeof window === 'undefined') {
-    // SSR: use container-internal address
-    return 'http://localhost:3001/api';
-  }
-  const { protocol, hostname } = window.location;
-  if (hostname.endsWith('.githubpreview.dev') || hostname.endsWith('.github.dev')) {
-    // Codespaces forwarded domain: swap port prefix from 3000 to 3001, works for now
-    const [first, ...rest] = hostname.split('.');
-    const parts = first.split('-');
-    parts[0] = '3001';
-    const newHost = [parts.join('-'), ...rest].join('.');
-    return `${protocol}//${newHost}/api`;
-  }
-  // Local dev in browser: same host, port 3001
-  return `${protocol}//${hostname}:3001/api`;
-};
-const API_URL = getApiUrl();
+const API_URL = 'http://localhost:3001/api';
 
 export const fetchMutualGuilds = async (context: GetServerSidePropsContext) => {
     const headers = validateCookies(context);
