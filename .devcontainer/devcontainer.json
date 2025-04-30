@@ -7,8 +7,9 @@
       "version": "20"
     }
   },
-  "workspaceFolder": "${containerWorkspaceFolder}",
-  "postAttachCommand": "bash ${containerWorkspaceFolder}/run.sh",
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+  "postAttachCommand": "bash /workspace/run.sh",
   "remoteEnv": {
     "PORT": "${PORT}",
     "API_PORT": "${API_PORT}",
