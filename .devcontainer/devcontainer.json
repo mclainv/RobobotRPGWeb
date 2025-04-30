@@ -1,23 +1,12 @@
 {
   "name": "RoboBotRPG Codespace",
   "image": "mcr.microsoft.com/vscode/devcontainers/typescript-node:0-18",
-  "workspaceFolder": "/workspace",
-  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
-  // Install dependencies in both subfolders after container is created
-  "postCreateCommand": "cd RobobotRPG-api && npm install && cd ../robobotrpgweb-client && npm install",
-  // Automatically start API process with PM2 on container start
-  "postStartCommand": "cd RobobotRPG-api && npx --yes pm2 start app.js && cd ../robobotrpgweb-client && npx --yes pm2 start dev",
-  // Expose client (3000) and API (3001)
-  "forwardPorts": [3000, 3001],
-  "updateContentCommand": "npm install",
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "dbaeumer.vscode-eslint",
-        "esbenp.prettier-vscode",
-        "ms-azuretools.vscode-docker"
-      ]
-    }
+  // "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "hostRequirements": {
+      "cpus": 4
+  },
+  "postAttachCommand": {
+      "server": "/bin/sh run.sh"
   },
   "remoteEnv": {
   "PORT": "${PORT}",
