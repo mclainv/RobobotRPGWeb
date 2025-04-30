@@ -16,5 +16,14 @@
   "DISCORD_BOT_TOKEN": "${DISCORD_BOT_TOKEN}",
   "CALLBACK_URL": "${CALLBACK_URL}"
 },
-  "forwardPorts": [3000, 3001]
+  "forwardPorts": [3000, 3001],
+  "portsAttributes": {
+    "3000": {
+        "label": "Application",
+        "onAutoForward": "openPreview"
+    },
+    "3001": {
+        "label": "API"
+    }
+}
 } 
