@@ -9,7 +9,7 @@
   },
   "workspaceFolder": "/workspace",
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
-  "postStartCommand": "bash /workspace/run.sh",
+  "postAttachCommand": "bash /workspace/run.sh",
   "remoteEnv": {
     "PORT": "${PORT}",
     "API_PORT": "${API_PORT}",
