@@ -2,7 +2,7 @@ import { GetServerSidePropsContext } from "next";
 import axios from 'axios';
 import { validateCookies } from "./helpers";
 import { PartialGuild } from "./types";
-import '../config';
+// import '../config';
 
 const API_URL = process.env.API_URL;
 
