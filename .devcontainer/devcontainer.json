@@ -1,13 +1,12 @@
 {
   "name": "RoboBotRPG Codespace",
   "image": "mcr.microsoft.com/vscode/devcontainers/typescript-node:0-18",
-  // "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
   "hostRequirements": {
       "cpus": 4
   },
-  "postAttachCommand": {
-      "server": "/bin/sh run.sh"
-  },
+  "postAttachCommand": "bash /workspace/run.sh",
   "remoteEnv": {
   "PORT": "${PORT}",
   "DSN": "${DSN}",
