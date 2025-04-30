@@ -23,13 +23,11 @@ export const fetchMutualGuilds = async (context: GetServerSidePropsContext) => {
     }
 }
 
-export const fetchValidGuild = async (context: GetServerSidePropsContext, guildId: string) => {
-    const headers = validateCookies(context);
-    if (!headers) return { redirect: { destination: '/'} };
-    const { origin } = absoluteUrl(context.req);
-    // Client-side call remains relative
-    const response = await fetch(`${origin}/api/guilds/${guildId}/permissions`, {
-        headers
+export const fetchValidGuild = async (guildId: string, headers: HeadersInit) => {
+    // Call through Next.js rewrite to ensure same-origin and cookie forwarding
+    const response = await fetch(`/api/guilds/${guildId}/permissions`, {
+        headers,
+        credentials: 'include',
     });
     return response;
 }
