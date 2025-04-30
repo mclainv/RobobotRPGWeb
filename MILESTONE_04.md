@@ -62,11 +62,14 @@ https://github.com/mclainv/RobobotRPGWeb/blob/8055e344f0679d7c537010f4b5f4728dab
 
 Description of research topics above with points
 ---
-(TODO: add description of research topics here, including point values for each, one per line... for example: 2 points - applied and modified "Clean Blog" Bootstrap theme)
+4 points - authentication with passport, discord, express cookies, mongodb, etc. The user stays authenticated for some amount of time after logging in.
+4 points - NextJS, JSX components, SASS as well. I used an entirely new setup than I was used to. It was incredibly rewarding.
+2 points - Separating express web api from web client, complex routes. This completed changed the way I was coding web projects.
 
 Links to github line number(s) for research topics described above (one link per line)
 ---
-(TODO: add link to github line number(s), one per line for research topics ... for example, if using auth/passport, link to auth.js or where bulk of auth code is)
+https://github.com/mclainv/RobobotRPGWeb/blob/801db8090948fec521925321e23fd4d0169859e8/RobobotRPG-api/src/routes/auth/index.ts#L6
+https://github.com/mclainv/RobobotRPGWeb/blob/801db8090948fec521925321e23fd4d0169859e8/robobotrpgweb-client/src/components/misc/index.module.scss#L26
 
 Optional project notes 
 --- 
