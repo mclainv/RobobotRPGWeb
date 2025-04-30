@@ -1,16 +1,23 @@
 #!/bin/sh
-cd "$(dirname "$0")"
 set -e
 
-# Install both backend and frontend dependencies
+# Ensure script runs from the repo root
+cd "$(dirname "$0")"
+
+echo "Installing backend dependencies..."
 cd RobobotRPG-api
 npm install
-cd ../robobotrpgweb-client
-npm install
+
+echo "Starting backend in background..."
+npm run dev &
 cd ..
 
-# Start both backend and frontend in parallel
-cd RobobotRPG-api
+echo "Installing frontend dependencies..."
+cd robobotrpgweb-client
+npm install
+
+echo "Starting frontend in background..."
 npm run dev &
-cd ../robobotrpgweb-client
-npm run dev &
+cd ..
+
+echo "Both servers are up and running in the background!"

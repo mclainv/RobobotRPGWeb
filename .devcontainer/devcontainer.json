@@ -1,6 +1,7 @@
 {
   "name": "RoboBotRPG Codespace",
-  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "image": "mcr.microsoft.com/vscode/devcontainers/typescript-node:0-20",
+  // "image": "mcr.microsoft.com/devcontainers/universal:2",
   "features": {
     "ghcr.io/devcontainers/features/node:1": {
       "version": "20"
@@ -8,11 +9,8 @@
   },
   "workspaceFolder": "/workspace",
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
-  "hostRequirements": {
-      "cpus": 4
-  },
-  "updateContentCommand": "cd robobotrpgweb-client && npm install && cd ../RobobotRPG-api && npm install",
-  "postAttachCommand": "bash /workspace/run.sh",
+  "postCreateCommand": "npm install --prefix RobobotRPG-api && npm install --prefix robobotrpgweb-client",
+  "postStartCommand": "bash /workspace/run.sh",
   "remoteEnv": {
   "PORT": "${PORT}",
   "DSN": "${DSN}",
