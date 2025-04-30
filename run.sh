@@ -1,18 +1,19 @@
- #!/bin/sh
- set -e  # Exit if any command fails
+#!/bin/sh
+set -e
 
- echo "Setting up backend..."
- cd RobobotRPG-api
- npm install
- cd ..
+echo "Setting up backend..."
+cd RobobotRPG-api
+npm install
+cd ..
 
- echo "Starting server..."
- cd RobobotRPG-api
- npm run dev
- cd ..
+echo "Starting backend in background..."
+cd RobobotRPG-api
+npm run dev &
+cd ..
 
- echo "Setting up frontend..."
- cd robobotrpgweb-client
- npm install
- npm run dev
- cd ..
+echo "Setting up frontend..."
+cd robobotrpgweb-client
+npm install
+npm run dev
+
+# End of script; background processes will continue running
