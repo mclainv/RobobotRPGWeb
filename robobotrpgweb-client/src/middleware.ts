@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { fetchValidGuild } from "./utils/api";
 const validateMiddlewareCookies = (req: NextRequest) => {
+    console.log("cookies are ", req.cookies);
     const sessionID = req.cookies.get('connect.sid')?.value;
     return sessionID ? ({
         Cookie: `connect.sid=${sessionID}`

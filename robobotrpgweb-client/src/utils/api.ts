@@ -8,9 +8,11 @@ const API_URL = process.env.API_URL;
 
 export const fetchMutualGuilds = async (context: GetServerSidePropsContext) => {
     const headers = validateCookies(context);
+    console.log("headers are ", headers);
     if (!headers) return { redirect: { destination: '/'} };
     try {
         const { data: guilds } = await axios.get<PartialGuild[]>(`${API_URL}/api/guilds`, { headers });
+        console.log("guilds are ", guilds);
         return { props: { guilds } } ;
     } catch(err) {
         console.log(err);
