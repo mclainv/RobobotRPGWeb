@@ -9,9 +9,9 @@
   },
   "workspaceFolder": "/workspace",
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
-  "postCreateCommand": "npm install --prefix RobobotRPG-api && npm install --prefix robobotrpgweb-client",
   "postStartCommand": "bash /workspace/run.sh",
   "remoteEnv": {
+    "PORT": "${PORT}",
     "API_PORT": "${API_PORT}",
     "SITE_URL": "${SITE_URL}",
     "API_URL": "${API_URL}",
