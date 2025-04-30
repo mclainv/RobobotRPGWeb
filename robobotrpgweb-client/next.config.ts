@@ -9,16 +9,7 @@ const nextConfig: NextConfig = {
   },
   images: {
     domains: ["cdn.discordapp.com", "placecats.com"]
-  },
-  // Proxy API requests to the backend server so frontend and API share origin
-  async rewrites() {
-    return [
-      {
-        source: '/api/:path*',
-        destination: 'http://localhost:3001/api/:path*',
-      },
-    ];
-  },
+  }
 };
 
 export default nextConfig;

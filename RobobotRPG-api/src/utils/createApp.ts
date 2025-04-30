@@ -21,22 +21,12 @@ export function createApp(): Express {
             credentials: true,
         })
     );
-    //Trust the GitHub Codespaces preview proxy
-    app.set('trust proxy', 1);
     //Enable sessions
     app.use(session({
         secret: 'aKj7$9pQ#2zLmN*5rT!xV8@yW3sBdE6fG', // used to en/decrypt cookie, to get session ID from server
         resave: false,
         saveUninitialized: false,
-        cookie: {
-          maxAge: 1000 * 60 * 60 * 24 * 3, // 3 days
-          sameSite: process.env.NODE_ENV === 'codespaces' ? 'lax' : 'none',
-          secure: process.env.NODE_ENV === 'codespaces',
-          // In Codespaces preview, preview URLs are subdomains of preview.app.github.dev
-          domain: process.env.NODE_ENV === 'codespaces'
-            ? '.preview.app.github.dev'
-            : 'localhost',
-        },
+        cookie: { maxAge: 60000 * 60 * 24 * 3 }, // 3 days 
         store: store.create({
             mongoUrl: process.env.DSN
         })

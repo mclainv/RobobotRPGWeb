@@ -4,8 +4,7 @@ import { FaDiscord } from "react-icons/fa";
 import '../config';
 const Home: NextPage = () => {
   const handleLogin = () => {
-    // Use the Next.js API proxy so the cookie is set on the same origin
-    window.location.href = '/api/auth/discord';
+    window.location.href = `${process.env.API_URL}/api/auth/discord`;
   }
   return (
     <div className="page page-aligned-center">
