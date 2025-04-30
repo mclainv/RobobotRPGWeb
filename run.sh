@@ -1,5 +1,5 @@
 #!/bin/sh
-# cd "$(dirname "$0")" is this needed?
+cd "$(dirname "$0")"
 set -e
 
 # Install both backend and frontend dependencies
