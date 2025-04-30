@@ -63,7 +63,7 @@ https://github.com/mclainv/RobobotRPGWeb/blob/8055e344f0679d7c537010f4b5f4728dab
 Description of research topics above with points
 ---
 4 points - authentication with passport, discord, express cookies, mongodb, etc. The user stays authenticated for some amount of time after logging in.
-4 points - NextJS, JSX components, SASS as well. I used an entirely new setup than I was used to. It was incredibly rewarding.
+4 points - NextJS, JSX components, SASS as well. I used an entirely new setup than I was used to. It was incredibly rewarding. I also started using Typescript which made things a lot less confusing when I was creating the API. It didn't make much difference when creating the web client.
 2 points - Separating express web api from web client, complex routes. This completed changed the way I was coding web projects.
 
 Links to github line number(s) for research topics described above (one link per line)
