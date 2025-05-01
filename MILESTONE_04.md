@@ -96,3 +96,7 @@ https://discord.com/oauth2/authorize?client_id=1362639218597302502
 
 Attributions
 ---
+https://react-tutorial.app/
+- I used this tutorial to get a handle on react
+
+I used the Discord API docs a lot, and I used some NextJS tutorials on youtube to figure out how to get it to work. Everything I wrote from consulting youtube and API docs I made sure I understand and would be able to put into my own writing.
